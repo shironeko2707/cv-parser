@@ -1,0 +1,72 @@
+{
+  "personal_info": {
+    "full_name": "Li Wei",
+    "email": "liwei.data@email.com",
+    "phone": "(+65) 9123 4567",
+    "city": "Singapore",
+    "country": "Singapore"
+  },
+  "summary": "Data engineer with 8 years of experience building large-scale data platforms and ML infrastructure.",
+  "education": [
+    {
+      "degree": "M.S. Computer Science (Big Data Systems)",
+      "institution": "National University of Singapore (NUS)",
+      "year_start": "2015",
+      "year_end": "2017",
+      "gpa": "4.6/5.0"
+    },
+    {
+      "degree": "B.Eng. Software Engineering",
+      "institution": "South China University of Technology (SCUT)",
+      "year_start": "2011",
+      "year_end": "2015",
+      "gpa": "3.78/4.0"
+    }
+  ],
+  "work_experience": [
+    {
+      "title": "Senior Data Engineer — ML Platform",
+      "company": "TikTok (ByteDance), Singapore",
+      "start_date": "Sep 2021",
+      "end_date": "Present",
+      "is_current": true
+    },
+    {
+      "title": "Data Engineer",
+      "company": "Shopee (Sea Group), Singapore",
+      "start_date": "Mar 2019",
+      "end_date": "Aug 2021"
+    },
+    {
+      "title": "Backend / Data Engineer",
+      "company": "Akulaku, Jakarta, Indonesia",
+      "start_date": "Jun 2017",
+      "end_date": "Feb 2019"
+    },
+    {
+      "title": "Software Engineer Intern",
+      "company": "Tencent, Shenzhen, China",
+      "start_date": "Jun 2016",
+      "end_date": "Aug 2016"
+    }
+  ],
+  "certifications": [
+    "AWS Certified Solutions Architect — Professional (2023)",
+    "GCP Professional Data Engineer (2022)",
+    "Databricks Certified Data Engineer Professional (2022)",
+    "SnowPro Advanced — Snowflake Snowpipe Streaming (2023)"
+  ],
+  "languages": [
+    {
+      "language": "English",
+      "proficiency": "Fluent"
+    },
+    {
+      "language": "Mandarin Chinese",
+      "proficiency": "Native"
+    }
+  ],
+  "metadata": {
+    "form_type": "freeform"
+  }
+}

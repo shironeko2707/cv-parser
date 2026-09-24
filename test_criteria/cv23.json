@@ -1,0 +1,53 @@
+{
+  "personal_info": {
+    "full_name": "Jennifer Marie Davis",
+    "email": "jennifer.davis.teacher@email.com",
+    "phone": "(+1) 303 555 0167",
+    "city": "Denver",
+    "country": "US"
+  },
+  "summary": "Dedicated English/Language Arts educator with 8 years of experience fostering literacy and critical thinking in diverse high school classrooms.",
+  "education": [
+    {
+      "degree": "M.A. Curriculum & Instruction",
+      "institution": "University of Colorado Denver",
+      "year_start": "2014",
+      "year_end": "2016"
+    },
+    {
+      "degree": "B.A. English Literature",
+      "institution": "University of Colorado Boulder",
+      "year_start": "2010",
+      "year_end": "2014",
+      "gpa": "3.6/4.0"
+    }
+  ],
+  "work_experience": [
+    {
+      "title": "10th Grade English Teacher",
+      "company": "Denver South High School, Denver, CO",
+      "start_date": "Aug 2020",
+      "end_date": "Present",
+      "is_current": true
+    },
+    {
+      "title": "9th Grade English Teacher",
+      "company": "Aurora Central High School, Aurora, CO",
+      "start_date": "Aug 2017",
+      "end_date": "May 2020"
+    },
+    {
+      "title": "Middle School Language Arts Teacher",
+      "company": "Wheeler Middle School, Denver",
+      "start_date": "Aug 2016",
+      "end_date": "May 2017"
+    }
+  ],
+  "certifications": [
+    "Colorado Professional Teaching License #12345678 — English (7-12), Active",
+    "National Board Certified Teacher (NBCT) — Adolescent English Language Arts, 2022"
+  ],
+  "metadata": {
+    "form_type": "freeform"
+  }
+}

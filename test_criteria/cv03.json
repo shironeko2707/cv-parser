@@ -1,0 +1,169 @@
+{
+  "personal_info": {
+    "full_name": "Dr. Yuki Tanaka",
+    "email": "yuki.tanaka@email.com",
+    "phone": "+81 90-1234-5678",
+    "city": "Tokyo",
+    "country": "Japan",
+    "github": "github.com/ytanaka-ml",
+    "portfolio": "scholar.google.com/yukitanaka"
+  },
+  "summary": "Data scientist with 8 years of experience in machine learning, NLP, and statistical modeling. Ph.D. in Computational Linguistics with 12 peer-reviewed publications (h-index: 9).",
+  "education": [
+    {
+      "degree": "Ph.D.",
+      "field_of_study": "Computational Linguistics",
+      "institution": "University of Tokyo",
+      "year_start": "2015",
+      "year_end": "2018",
+      "thesis": "Cross-lingual Transfer Learning for Document-level NLP Tasks"
+    },
+    {
+      "degree": "M.S.",
+      "field_of_study": "Computer Science",
+      "institution": "Kyoto University",
+      "year_start": "2013",
+      "year_end": "2015",
+      "gpa": "3.9/4.0"
+    },
+    {
+      "degree": "B.S.",
+      "field_of_study": "Mathematics",
+      "institution": "Osaka University",
+      "year_start": "2009",
+      "year_end": "2013",
+      "gpa": "3.7/4.0"
+    }
+  ],
+  "work_experience": [
+    {
+      "title": "Lead Data Scientist — NLP",
+      "company": "FinSight Analytics",
+      "location": "Tokyo",
+      "start_date": "Apr 2021",
+      "end_date": "Present",
+      "is_current": true,
+      "responsibilities": [
+        "Lead team of 5 data scientists building NLP models for regulatory document processing",
+        "Developed custom BERT-based NER model achieving 94.2% F1 on financial entity extraction",
+        "Built RAG pipeline with Qdrant + GPT-4 for compliance Q&A, reducing manual review by 60%",
+        "Designed MLOps infrastructure on AWS SageMaker: model registry, A/B testing, monitoring",
+        "Implemented PII masking pipeline using Presidio achieving 99.1% recall on Japanese PII patterns",
+        "Published internal research on domain-adapted LLM fine-tuning for financial Japanese text"
+      ]
+    },
+    {
+      "title": "Data Scientist",
+      "company": "Rakuten Group",
+      "location": "Tokyo",
+      "start_date": "Sep 2018",
+      "end_date": "Mar 2021",
+      "is_current": false,
+      "responsibilities": [
+        "Built recommendation engine serving 50M+ users using collaborative filtering and deep learning",
+        "Developed real-time fraud detection model (XGBoost + LSTM) with 97.3% precision at 0.1% FPR",
+        "Created multilingual sentiment analysis pipeline supporting Japanese, English, and Korean",
+        "Reduced model inference latency by 80% through ONNX conversion and TensorRT optimization"
+      ]
+    },
+    {
+      "title": "Research Assistant",
+      "company": "University of Tokyo — NLP Lab",
+      "location": "Tokyo",
+      "start_date": "Apr 2015",
+      "end_date": "Aug 2018",
+      "is_current": false,
+      "responsibilities": [
+        "Conducted research on cross-lingual transfer learning for low-resource Asian languages",
+        "Developed novel attention mechanism for document-level machine translation (ACL 2018 paper)",
+        "Maintained lab GPU cluster (8x A100) and MLflow experiment tracking infrastructure"
+      ]
+    }
+  ],
+  "skills": {
+    "programming_languages": [
+      "Python",
+      "R",
+      "SQL",
+      "Scala"
+    ],
+    "frameworks": [
+      "PyTorch",
+      "TensorFlow",
+      "Hugging Face Transformers",
+      "scikit-learn",
+      "XGBoost",
+      "LightGBM",
+      "spaCy",
+      "LangChain",
+      "LlamaIndex"
+    ],
+    "databases": [
+      "PostgreSQL",
+      "BigQuery",
+      "Elasticsearch"
+    ],
+    "cloud_devops": [
+      "AWS",
+      "SageMaker",
+      "Lambda",
+      "S3",
+      "ECS",
+      "GCP",
+      "Vertex AI",
+      "Docker",
+      "Kubernetes"
+    ],
+    "tools": [
+      "MLflow",
+      "Kubeflow",
+      "DVC",
+      "Weights & Biases",
+      "Airflow",
+      "ONNX Runtime"
+    ]
+  },
+  "publications": [
+    {
+      "title": "Efficient Domain Adaptation of LLMs for Financial Text Processing",
+      "venue": "EMNLP 2023",
+      "year": "2023",
+      "authors": "Tanaka Y., et al."
+    },
+    {
+      "title": "Cross-lingual Named Entity Recognition with Few-shot Learning",
+      "venue": "NAACL 2022",
+      "year": "2022",
+      "authors": "Tanaka Y., Suzuki K."
+    },
+    {
+      "title": "Hierarchical Attention for Document-level Machine Translation",
+      "venue": "ACL 2018",
+      "year": "2018",
+      "authors": "Tanaka Y., et al."
+    },
+    {
+      "title": "Low-resource NER for Asian Languages via Multilingual BERT",
+      "venue": "COLING 2017",
+      "year": "2017",
+      "authors": "Tanaka Y., Yamamoto H."
+    }
+  ],
+  "languages": [
+    {
+      "language": "Japanese",
+      "proficiency": "Native"
+    },
+    {
+      "language": "English",
+      "proficiency": "TOEFL iBT 108"
+    },
+    {
+      "language": "Mandarin Chinese",
+      "proficiency": "HSK 4"
+    }
+  ],
+  "metadata": {
+    "form_type": "freeform"
+  }
+}

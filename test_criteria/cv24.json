@@ -1,0 +1,82 @@
+{
+  "personal_info": {
+    "full_name": "Hannah Liu",
+    "email": "hannah.liu.arch@email.com",
+    "phone": "(+1) 617 555 0234",
+    "city": "Cambridge",
+    "country": "US"
+  },
+  "summary": "Licensed architect with 10 years of experience designing high-performance educational, healthcare, and civic buildings.",
+  "education": [
+    {
+      "degree": "M.Arch (Master of Architecture)",
+      "institution": "Massachusetts Institute of Technology (MIT)",
+      "year_start": "2011",
+      "year_end": "2014"
+    },
+    {
+      "degree": "B.A. Architecture, cum laude",
+      "institution": "Wesleyan University, Middletown, CT",
+      "year_start": "2007",
+      "year_end": "2011",
+      "gpa": "3.7/4.0"
+    }
+  ],
+  "work_experience": [
+    {
+      "title": "Senior Architect / Project Lead",
+      "company": "Payette Associates, Boston, MA",
+      "start_date": "Sep 2020",
+      "end_date": "Present",
+      "is_current": true
+    },
+    {
+      "title": "Architect",
+      "company": "Perkins&Will, Boston, MA",
+      "start_date": "Jun 2017",
+      "end_date": "Aug 2020"
+    },
+    {
+      "title": "Junior Architect",
+      "company": "Sasaki Associates, Watertown, MA",
+      "start_date": "Jun 2014",
+      "end_date": "May 2017"
+    }
+  ],
+  "certifications": [
+    "Registered Architect (RA) — Massachusetts #ARC-98765 — Active",
+    "NCIDQ-certified — Certificate #NCIDQ-45678",
+    "LEED Accredited Professional — Building Design + Construction (BD+C)",
+    "WELL AP — Well Building Standard, 2022"
+  ],
+  "languages": [
+    {
+      "language": "English",
+      "proficiency": "Native"
+    },
+    {
+      "language": "Mandarin Chinese",
+      "proficiency": "Fluent — HSK 6"
+    }
+  ],
+  "projects": [
+    {
+      "name": "BU College of Engineering — Lab Building",
+      "year": "2024",
+      "value": "$45M"
+    },
+    {
+      "name": "Boston Public Library — Branch Renovation",
+      "year": "2023",
+      "value": "$8M"
+    },
+    {
+      "name": "MIT Sloan — East Wing Addition",
+      "year": "2022",
+      "value": "$28M"
+    }
+  ],
+  "metadata": {
+    "form_type": "freeform"
+  }
+}

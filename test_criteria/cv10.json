@@ -1,0 +1,198 @@
+{
+  "personal_info": {
+    "full_name": "Park Jihoon",
+    "preferred_name": "James Park",
+    "date_of_birth": "03/07/1988",
+    "nationality": "South Korean (Singapore PR)",
+    "id_number": "S8812345A",
+    "phone": "+65 9123 4567",
+    "email": "jihoon.park@email.com",
+    "linkedin": "linkedin.com/in/jamespark-sg",
+    "city": "Singapore",
+    "country": "Singapore"
+  },
+  "position_applied": {
+    "title": "DevOps Team Lead",
+    "department": "Platform Engineering",
+    "reference_number": "TS-2024-PE-0089",
+    "expected_salary": "SGD 12,000 — 15,000/month",
+    "notice_period": "60 days"
+  },
+  "summary": "Results-driven DevOps engineer with 10+ years of experience in cloud infrastructure, CI/CD pipeline design, and SRE practices. Currently managing a team of 8 DevOps engineers at a fintech company serving 5M+ customers across Southeast Asia.",
+  "education": [
+    {
+      "degree": "B.S.",
+      "field_of_study": "Computer Science & Engineering",
+      "institution": "Korea Advanced Institute of Science & Technology (KAIST)",
+      "year_start": "2008",
+      "year_end": "2012",
+      "gpa": "3.8/4.3"
+    }
+  ],
+  "work_experience": [
+    {
+      "title": "Senior DevOps Engineer / Team Lead",
+      "company": "GrabFinancial Group",
+      "location": "Singapore",
+      "start_date": "Jul 2021",
+      "end_date": "Present",
+      "is_current": true,
+      "responsibilities": [
+        "Designed and implemented internal developer platform (IDP) reducing developer onboarding from 5 days to 4 hours",
+        "Built Kubernetes-based multi-tenant platform serving 200+ microservices across 3 AWS regions",
+        "Implemented GitOps workflow with ArgoCD managing 500+ Helm releases with zero manual interventions",
+        "Reduced cloud infrastructure costs by $1.2M/year through FinOps practices and rightsizing automation",
+        "Established SRE practices: SLO/SLI framework, error budgets, and incident management (PagerDuty)",
+        "Led migration from Jenkins to GitHub Actions: 3,000+ pipelines, 40% faster build times"
+      ]
+    },
+    {
+      "title": "DevOps Engineer",
+      "company": "Shopee (Sea Group)",
+      "location": "Singapore",
+      "start_date": "Mar 2018",
+      "end_date": "Jun 2021",
+      "is_current": false
+    },
+    {
+      "title": "Systems Engineer",
+      "company": "Samsung SDS",
+      "location": "Seoul, South Korea",
+      "start_date": "Jan 2015",
+      "end_date": "Feb 2018",
+      "is_current": false
+    },
+    {
+      "title": "Junior Infrastructure Engineer",
+      "company": "NHN Corp (Naver)",
+      "location": "Seongnam, Korea",
+      "start_date": "Jun 2012",
+      "end_date": "Dec 2014",
+      "is_current": false
+    }
+  ],
+  "certifications": [
+    {
+      "name": "AWS Solutions Architect — Professional",
+      "issuer": "Amazon Web Services",
+      "year": "2023",
+      "id": "AWS-SAP-2023-12345"
+    },
+    {
+      "name": "Certified Kubernetes Administrator (CKA)",
+      "issuer": "CNCF / Linux Foundation",
+      "year": "2022",
+      "id": "CKA-2200-009876"
+    },
+    {
+      "name": "Google Cloud Professional Cloud Architect",
+      "issuer": "Google Cloud",
+      "year": "2021",
+      "id": "GCP-PCA-0054321"
+    },
+    {
+      "name": "HashiCorp Certified: Terraform Associate",
+      "issuer": "HashiCorp",
+      "year": "2021",
+      "id": "HC-TA-2021-11223"
+    },
+    {
+      "name": "ITIL v4 Foundation",
+      "issuer": "Axelos / PeopleCert",
+      "year": "2019",
+      "id": "GR750123456JP"
+    }
+  ],
+  "skills": {
+    "programming_languages": [
+      "Go",
+      "Python",
+      "Bash",
+      "TypeScript"
+    ],
+    "frameworks": [
+      "Docker",
+      "Kubernetes",
+      "Helm",
+      "Istio",
+      "Kustomize",
+      "ArgoCD",
+      "Terraform",
+      "Pulumi",
+      "Ansible"
+    ],
+    "databases": [
+      "PostgreSQL",
+      "MySQL",
+      "Redis",
+      "DynamoDB",
+      "MongoDB"
+    ],
+    "cloud_devops": [
+      "AWS",
+      "EKS",
+      "EC2",
+      "Lambda",
+      "S3",
+      "RDS",
+      "GCP",
+      "GKE",
+      "Cloud Run",
+      "GitHub Actions",
+      "Jenkins",
+      "Spinnaker"
+    ],
+    "tools": [
+      "Datadog",
+      "Prometheus",
+      "Grafana",
+      "ELK Stack",
+      "Jaeger",
+      "Vault",
+      "OPA",
+      "Falco",
+      "Trivy"
+    ]
+  },
+  "languages": [
+    {
+      "language": "Korean",
+      "proficiency": "Native"
+    },
+    {
+      "language": "English",
+      "proficiency": "Fluent",
+      "certificate": "TOEFL iBT 105"
+    },
+    {
+      "language": "Mandarin Chinese",
+      "proficiency": "Conversational",
+      "certificate": "HSK 3"
+    },
+    {
+      "language": "Malay",
+      "proficiency": "Basic"
+    }
+  ],
+  "references": [
+    {
+      "name": "Sarah Lim Mei Ying",
+      "relationship": "Direct Manager",
+      "organization": "GrabFinancial Group",
+      "email": "sarah.lim@grab.com",
+      "phone": "+65 8234 5678"
+    },
+    {
+      "name": "Dr. Kim Sungho",
+      "relationship": "Former Manager",
+      "organization": "Samsung SDS",
+      "email": "sungho.kim@samsung.com",
+      "phone": "+82 10 9876 5432"
+    }
+  ],
+  "metadata": {
+    "form_type": "mixed",
+    "form_id": "TS-HR-2024-APP",
+    "organization": "TechnoServe Solutions Pte Ltd"
+  }
+}

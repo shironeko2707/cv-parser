@@ -1,0 +1,139 @@
+{
+  "personal_info": {
+    "full_name": "Alexander Chen",
+    "email": "alexander.chen@email.com",
+    "phone": "+1 (415) 555-0192",
+    "address": "San Francisco, CA 94102",
+    "city": "San Francisco",
+    "country": "US",
+    "linkedin": "linkedin.com/in/alexanderchen",
+    "github": "github.com/alexchen-dev"
+  },
+  "summary": "Full-stack software engineer with 7+ years of experience building scalable web applications and distributed systems. Proficient in Python, Go, TypeScript, and cloud-native architectures.",
+  "education": [
+    {
+      "degree": "B.S.",
+      "field_of_study": "Computer Science",
+      "institution": "University of California, Berkeley",
+      "year_start": "2012",
+      "year_end": "2016",
+      "gpa": "3.78/4.0"
+    }
+  ],
+  "work_experience": [
+    {
+      "title": "Senior Software Engineer",
+      "company": "TechVista Inc.",
+      "location": "San Francisco, CA",
+      "start_date": "Jan 2021",
+      "end_date": "Present",
+      "is_current": true,
+      "responsibilities": [
+        "Architected and led migration from monolithic Django app to Go-based microservices, reducing p99 latency by 62%",
+        "Designed event-driven architecture using Apache Kafka handling 500K+ events/hour",
+        "Built CI/CD pipeline with GitHub Actions reducing deployment time from 45min to 8min",
+        "Mentored 4 junior engineers through structured code review and pair programming sessions",
+        "Implemented distributed caching layer with Redis Cluster, improving API response time by 40%"
+      ]
+    },
+    {
+      "title": "Software Engineer",
+      "company": "DataFlow Systems",
+      "location": "Mountain View, CA",
+      "start_date": "Mar 2018",
+      "end_date": "Dec 2020",
+      "is_current": false,
+      "responsibilities": [
+        "Developed real-time data pipeline processing 10TB/day using Apache Spark and Airflow",
+        "Built React-based analytics dashboard with D3.js visualizations for 500+ enterprise clients",
+        "Implemented OAuth 2.0 and RBAC authorization system across 12 microservices",
+        "Reduced AWS infrastructure costs by 35% through right-sizing and spot instance strategies"
+      ]
+    },
+    {
+      "title": "Junior Developer",
+      "company": "WebCraft Agency",
+      "location": "Portland, OR",
+      "start_date": "Jun 2016",
+      "end_date": "Feb 2018",
+      "is_current": false,
+      "responsibilities": [
+        "Developed responsive web applications for 20+ clients using React, Node.js, and PostgreSQL",
+        "Built automated testing suite achieving 92% code coverage across all projects",
+        "Collaborated with UX designers to implement pixel-perfect interfaces from Figma mockups"
+      ]
+    }
+  ],
+  "skills": {
+    "programming_languages": [
+      "Python",
+      "Go",
+      "TypeScript",
+      "JavaScript",
+      "SQL",
+      "Rust",
+      "Java"
+    ],
+    "frameworks": [
+      "Django",
+      "FastAPI",
+      "React",
+      "Next.js",
+      "Express.js",
+      "Gin"
+    ],
+    "databases": [
+      "PostgreSQL",
+      "MongoDB",
+      "Redis",
+      "Elasticsearch",
+      "DynamoDB"
+    ],
+    "cloud_devops": [
+      "AWS",
+      "EC2",
+      "ECS",
+      "Lambda",
+      "S3",
+      "Docker",
+      "Kubernetes",
+      "Terraform",
+      "GitHub Actions"
+    ],
+    "tools": [
+      "Git",
+      "Jira",
+      "Datadog",
+      "Grafana",
+      "Sentry",
+      "Confluence"
+    ]
+  },
+  "certifications": [
+    {
+      "name": "AWS Solutions Architect — Associate",
+      "year": "2022"
+    },
+    {
+      "name": "Certified Kubernetes Administrator (CKA)",
+      "year": "2023"
+    },
+    {
+      "name": "Google Cloud Professional Data Engineer",
+      "year": "2021"
+    }
+  ],
+  "projects": [
+    {
+      "name": "OpenTrace",
+      "description": "Open-source distributed tracing library for Go microservices. 1,200+ GitHub stars."
+    },
+    {
+      "name": "QueryOptimizer",
+      "description": "PostgreSQL query analysis tool that suggests index improvements."
+    }
+  ],
+  "metadata": {
+    "form_type": "freeform"
+  }
+}

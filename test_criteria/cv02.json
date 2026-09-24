@@ -1,0 +1,127 @@
+{
+  "personal_info": {
+    "full_name": "Sofia Martinez",
+    "email": "sofia.martinez@email.com",
+    "phone": "+44 7700 900123",
+    "city": "London",
+    "country": "UK",
+    "portfolio": "sofiamartinez.co",
+    "linkedin": "linkedin.com/in/sofiamtz"
+  },
+  "summary": "Award-winning marketing professional with 9 years of experience driving brand growth for Fortune 500 companies and high-growth startups. Expert in multi-channel digital campaigns, content strategy, and marketing analytics.",
+  "education": [
+    {
+      "degree": "MBA",
+      "field_of_study": "Marketing Concentration",
+      "institution": "London Business School",
+      "year_start": "2017",
+      "year_end": "2018"
+    },
+    {
+      "degree": "B.A.",
+      "field_of_study": "Communications & Media",
+      "institution": "Universidad Complutense de Madrid",
+      "year_start": "2011",
+      "year_end": "2015",
+      "gpa": "8.7/10"
+    }
+  ],
+  "work_experience": [
+    {
+      "title": "Head of Digital Marketing",
+      "company": "GlowUp Beauty (D2C)",
+      "location": "London",
+      "start_date": "Apr 2021",
+      "end_date": "Present",
+      "is_current": true,
+      "responsibilities": [
+        "Developed and executed omnichannel marketing strategy resulting in 180% YoY revenue growth",
+        "Managed annual marketing budget of £1.8M across paid social, SEO/SEM, influencer, and email",
+        "Built and managed team of 6 marketers, 2 designers, and 3 freelance content creators",
+        "Launched TikTok strategy generating 45M organic views in first 6 months",
+        "Implemented Hubspot CRM and marketing automation reducing lead response time by 75%"
+      ]
+    },
+    {
+      "title": "Senior Marketing Manager",
+      "company": "Unilever — Personal Care Division",
+      "location": "London",
+      "start_date": "Sep 2018",
+      "end_date": "Mar 2021",
+      "is_current": false,
+      "responsibilities": [
+        "Led digital transformation for 3 legacy brands, increasing online sales share from 8% to 31%",
+        "Managed cross-functional team of 12 across UK, Spain, and Brazil offices",
+        "Designed A/B testing framework for landing pages achieving 22% conversion improvement",
+        "Orchestrated product launch campaign reaching 15M consumers across 6 European markets"
+      ]
+    },
+    {
+      "title": "Marketing Coordinator",
+      "company": "Ogilvy",
+      "location": "Madrid",
+      "start_date": "Jul 2015",
+      "end_date": "Aug 2018",
+      "is_current": false,
+      "responsibilities": [
+        "Supported campaign development for clients including Coca-Cola, Nestlé, and IKEA",
+        "Created content calendars and managed social media accounts totaling 2M+ followers",
+        "Analyzed campaign performance using Google Analytics, producing monthly insight reports"
+      ]
+    }
+  ],
+  "skills": {
+    "other": [
+      "Brand positioning",
+      "Go-to-market",
+      "Content marketing",
+      "SEO/SEM",
+      "Influencer partnerships",
+      "CRO",
+      "Marketing mix modeling"
+    ],
+    "tools": [
+      "HubSpot",
+      "Google Analytics 4",
+      "Tableau",
+      "Meta Business Suite",
+      "Salesforce Marketing Cloud",
+      "Klaviyo",
+      "Figma",
+      "Canva",
+      "Semrush",
+      "Ahrefs"
+    ]
+  },
+  "languages": [
+    {
+      "language": "English",
+      "proficiency": "Native"
+    },
+    {
+      "language": "Spanish",
+      "proficiency": "Native"
+    },
+    {
+      "language": "Portuguese",
+      "proficiency": "B2"
+    }
+  ],
+  "awards": [
+    {
+      "name": "Campaign of the Year — Marketing Week Awards",
+      "year": "2023"
+    },
+    {
+      "name": "30 Under 30 — Forbes Marketing & Advertising",
+      "year": "2020"
+    },
+    {
+      "name": "Gold Effie — Digital Brand Experience",
+      "year": "2022"
+    }
+  ],
+  "metadata": {
+    "form_type": "freeform"
+  }
+}

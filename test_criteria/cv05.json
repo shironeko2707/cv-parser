@@ -1,0 +1,134 @@
+{
+  "personal_info": {
+    "full_name": "James William Blackwood",
+    "email": "james.blackwood@email.com",
+    "phone": "+1 (212) 555-0198",
+    "city": "New York",
+    "country": "US",
+    "linkedin": "linkedin.com/in/jwblackwood"
+  },
+  "summary": "Visionary technology executive with 18+ years of experience leading digital transformation initiatives across financial services, healthcare, and e-commerce sectors. Proven track record of building and scaling engineering organizations from 15 to 200+ engineers.",
+  "education": [
+    {
+      "degree": "MBA",
+      "field_of_study": "Technology Management",
+      "institution": "The Wharton School, University of Pennsylvania",
+      "year_start": "2010",
+      "year_end": "2012"
+    },
+    {
+      "degree": "M.S.",
+      "field_of_study": "Computer Science",
+      "institution": "Stanford University",
+      "year_start": "2004",
+      "year_end": "2006",
+      "gpa": "3.92/4.0"
+    },
+    {
+      "degree": "B.S.",
+      "field_of_study": "Computer Engineering",
+      "institution": "Georgia Institute of Technology",
+      "year_start": "2000",
+      "year_end": "2004",
+      "gpa": "3.85/4.0"
+    }
+  ],
+  "work_experience": [
+    {
+      "title": "Chief Technology Officer",
+      "company": "GlobalPay Financial Technologies",
+      "location": "New York, NY",
+      "start_date": "Jan 2020",
+      "end_date": "Present",
+      "is_current": true,
+      "responsibilities": [
+        "Lead 210-person engineering organization across NYC, London, and Bangalore offices",
+        "Manage annual technology budget of $85M covering infrastructure, development, and security",
+        "Spearheaded migration from on-premise data centers to multi-cloud (AWS + Azure) saving $12M/yr",
+        "Launched AI-powered fraud detection platform reducing false positives by 45% and saving $28M annually",
+        "Implemented platform engineering team reducing developer onboarding time from 3 weeks to 2 days",
+        "Drove company-wide adoption of GenAI tools, achieving 25% productivity improvement in Q1 2024",
+        "Board-level technology risk reporting and compliance alignment (SOC 2, PCI DSS, GDPR)"
+      ]
+    },
+    {
+      "title": "VP of Engineering",
+      "company": "HealthBridge Digital",
+      "location": "Boston, MA",
+      "start_date": "Mar 2016",
+      "end_date": "Dec 2019",
+      "is_current": false,
+      "responsibilities": [
+        "Built engineering organization from 35 to 120 engineers in 3 years",
+        "Architected HIPAA-compliant cloud platform processing 2M+ patient records daily",
+        "Led $40M EHR integration program connecting 300+ hospitals to unified data platform",
+        "Established engineering culture: introduced RFC process, tech talks, and 20% innovation time",
+        "Managed vendor relationships totaling $15M/yr (AWS, Snowflake, Datadog, Confluent)"
+      ]
+    },
+    {
+      "title": "Director of Engineering",
+      "company": "ShopStream (acquired by Walmart, 2016)",
+      "location": "San Francisco, CA",
+      "start_date": "Jun 2012",
+      "end_date": "Feb 2016",
+      "is_current": false,
+      "responsibilities": [
+        "Led team of 45 engineers building real-time recommendation engine serving 8M daily users",
+        "Designed microservices architecture handling 50K requests/second with 99.99% uptime",
+        "Key technical leader during $180M acquisition by Walmart — led integration planning",
+        "Implemented machine learning pipeline for personalized product ranking (15% conversion lift)"
+      ]
+    },
+    {
+      "title": "Senior Software Engineer",
+      "company": "Amazon Web Services",
+      "location": "Seattle, WA",
+      "start_date": "Aug 2008",
+      "end_date": "May 2012",
+      "is_current": false,
+      "responsibilities": [
+        "Core contributor to AWS Lambda launch team — designed execution sandbox architecture",
+        "Built internal distributed testing framework used by 500+ engineering teams",
+        "Filed 3 patents related to serverless computing and container orchestration"
+      ]
+    },
+    {
+      "title": "Software Engineer",
+      "company": "Microsoft — Azure Division",
+      "location": "Redmond, WA",
+      "start_date": "Jul 2006",
+      "end_date": "Jul 2008",
+      "is_current": false,
+      "responsibilities": [
+        "Developed core components of Azure Storage service during its pre-launch phase",
+        "Implemented replication protocol ensuring data durability across data centers"
+      ]
+    }
+  ],
+  "patents": [
+    {
+      "title": "Method for Serverless Function Cold Start Optimization",
+      "number": "US Patent 10,234,567",
+      "year": "2014"
+    },
+    {
+      "title": "Distributed Container Orchestration with Dynamic Scaling",
+      "number": "US Patent 10,345,678",
+      "year": "2015"
+    },
+    {
+      "title": "Event-driven Execution Sandbox Isolation",
+      "number": "US Patent 10,456,789",
+      "year": "2016"
+    }
+  ],
+  "activities": [
+    "Board Advisor, CortexAI (Series B AI startup) — 2022-Present",
+    "Technical Advisory Board, DataMesh Labs — 2021-Present",
+    "Guest Lecturer, Columbia University CS Department — 2020-Present"
+  ],
+  "metadata": {
+    "form_type": "freeform"
+  }
+}

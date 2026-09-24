@@ -1,0 +1,66 @@
+{
+  "personal_info": {
+    "full_name": "Marina Petrova",
+    "email": "marina.petrova@email.com",
+    "phone": "(+7) 905 123 45 67",
+    "city": "Moscow",
+    "country": "Russia"
+  },
+  "summary": "Senior product designer with 9 years experience leading 0-to-1 product development for B2B SaaS and consumer apps.",
+  "education": [
+    {
+      "degree": "M.A. Interaction Design",
+      "institution": "Royal College of Art, London, UK",
+      "year_start": "2014",
+      "year_end": "2016"
+    },
+    {
+      "degree": "B.A. Visual Communication",
+      "institution": "Moscow State Stroganov Academy, Russia",
+      "year_start": "2010",
+      "year_end": "2014"
+    }
+  ],
+  "work_experience": [
+    {
+      "title": "Senior Product Designer / Lead",
+      "company": "Avito (Tech Holding)",
+      "start_date": "Jan 2022",
+      "end_date": "Present",
+      "is_current": true
+    },
+    {
+      "title": "Product Designer",
+      "company": "Yandex",
+      "start_date": "Mar 2018",
+      "end_date": "Dec 2021"
+    },
+    {
+      "title": "UX/UI Designer",
+      "company": "Studio Mobile, Moscow",
+      "start_date": "Sep 2016",
+      "end_date": "Feb 2018"
+    }
+  ],
+  "awards": [
+    "Red Dot Design Award 2023 — Product Design category",
+    "Awwwards Site of the Day (Mar 2022)"
+  ],
+  "languages": [
+    {
+      "language": "Russian",
+      "proficiency": "Native"
+    },
+    {
+      "language": "English",
+      "proficiency": "Fluent — IELTS 8.0"
+    },
+    {
+      "language": "German",
+      "proficiency": "B2 — Goethe-Zertifikat"
+    }
+  ],
+  "metadata": {
+    "form_type": "freeform"
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "personal_info": {
+    "full_name": "Pham Quoc Hung",
+    "email": "hungpham.dev@email.com",
+    "phone": "(+84) 987 654 321",
+    "date_of_birth": "22/08/1995",
+    "gender": "Male",
+    "marital_status": "Single",
+    "id_number": "001095012345",
+    "address": "45 Nguyen Trai, Thanh Xuan, Ha Noi",
+    "city": "Hanoi",
+    "country": "Vietnam",
+    "linkedin": "linkedin.com/in/hungphamdev",
+    "github": "github.com/hungpham95"
+  },
+  "summary": "Software engineer with 5 years of experience in web application and backend system development. Seeking a Senior Backend Engineer position.",
+  "education": [
+    {
+      "degree": "Bachelor",
+      "field_of_study": "Information Technology",
+      "institution": "Hanoi University of Science and Technology (HUST)",
+      "year_start": "2013",
+      "year_end": "2018",
+      "gpa": "3.2/4.0"
+    }
+  ],
+  "work_experience": [
+    {
+      "title": "Backend Engineer",
+      "company": "VNG Corporation",
+      "location": "Ho Chi Minh City",
+      "start_date": "06/2021",
+      "end_date": "Present",
+      "is_current": true,
+      "responsibilities": [
+        "Developed microservices for ZaloPay platform processing 2M+ transactions/day",
+        "Designed and deployed event-driven architecture using Kafka and Redis Streams",
+        "Optimized database queries reducing API response time from 800ms to 120ms",
+        "Built CI/CD pipeline with GitLab CI and ArgoCD for Kubernetes deployment",
+        "Mentored 3 new team members on Go best practices and system design"
+      ]
+    },
+    {
+      "title": "Software Developer",
+      "company": "CMC Global",
+      "location": "Hanoi",
+      "start_date": "03/2019",
+      "end_date": "05/2021",
+      "is_current": false,
+      "responsibilities": [
+        "Developed REST APIs for Japanese banking outsource project (Spring Boot + Oracle)",
+        "Built batch processing module handling 500K records/hour with Spring Batch",
+        "Participated in code review and wrote technical documentation for 2 major projects",
+        "Obtained AWS Solutions Architect Associate certification"
+      ]
+    }
+  ],
+  "skills": {
+    "programming_languages": [
+      "Go",
+      "Java",
+      "Python",
+      "SQL",
+      "JavaScript"
+    ],
+    "frameworks": [
+      "Gin",
+      "Spring Boot",
+      "FastAPI",
+      "gRPC"
+    ],
+    "databases": [
+      "PostgreSQL",
+      "MySQL",
+      "MongoDB",
+      "Redis",
+      "Elasticsearch"
+    ],
+    "cloud_devops": [
+      "AWS",
+      "Docker",
+      "Kubernetes",
+      "Kafka",
+      "GitLab CI",
+      "Terraform"
+    ]
+  },
+  "certifications": [
+    {
+      "name": "AWS Solutions Architect — Associate",
+      "year": "2020"
+    },
+    {
+      "name": "JLPT N3",
+      "issuer": "Japan Foundation",
+      "year": "2019"
+    },
+    {
+      "name": "TOEIC 785",
+      "year": "2021"
+    }
+  ],
+  "languages": [
+    {
+      "language": "Vietnamese",
+      "proficiency": "Native"
+    },
+    {
+      "language": "English",
+      "proficiency": "TOEIC 785",
+      "certificate": "TOEIC 785"
+    },
+    {
+      "language": "Japanese",
+      "proficiency": "N3",
+      "certificate": "JLPT N3"
+    }
+  ],
+  "metadata": {
+    "form_type": "freeform"
+  }
+}

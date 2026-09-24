@@ -1,0 +1,131 @@
+{
+  "personal_info": {
+    "full_name": "Nguyen Thi Minh Anh",
+    "email": "minhanh.nguyen@email.com",
+    "phone": "(+84) 912 345 678",
+    "city": "Hanoi",
+    "country": "Vietnam",
+    "date_of_birth": "15/03/2001",
+    "linkedin": "linkedin.com/in/minhanhng"
+  },
+  "summary": "Recent graduate in Information Technology seeking an entry-level software developer position where I can apply my knowledge of web development, database management, and agile methodologies.",
+  "education": [
+    {
+      "degree": "Bachelor",
+      "field_of_study": "Information Technology",
+      "institution": "Hanoi University of Science and Technology (HUST)",
+      "year_start": "2019",
+      "year_end": "2023",
+      "gpa": "3.45/4.0",
+      "coursework": "Data Structures & Algorithms, Database Systems, Software Engineering, Computer Networks, Web Application Development, Machine Learning Fundamentals"
+    },
+    {
+      "degree": "High School Diploma",
+      "institution": "Chuyen Ha Noi — Amsterdam High School for the Gifted",
+      "year_start": "2016",
+      "year_end": "2019"
+    }
+  ],
+  "work_experience": [
+    {
+      "title": "Software Development Intern",
+      "company": "FPT Software",
+      "location": "Hanoi",
+      "start_date": "Jan 2023",
+      "end_date": "May 2023",
+      "is_current": false,
+      "responsibilities": [
+        "Developed REST APIs using Spring Boot for an internal HR management system",
+        "Wrote unit tests with JUnit achieving 85% code coverage on assigned modules",
+        "Participated in daily Scrum meetings and bi-weekly sprint retrospectives",
+        "Collaborated with senior developers to debug and resolve 30+ production issues"
+      ]
+    }
+  ],
+  "skills": {
+    "programming_languages": [
+      "Java",
+      "Python",
+      "JavaScript",
+      "SQL",
+      "HTML",
+      "CSS"
+    ],
+    "frameworks": [
+      "React",
+      "Spring Boot",
+      "Node.js",
+      "Flask"
+    ],
+    "databases": [
+      "MySQL",
+      "MongoDB",
+      "Redis"
+    ],
+    "tools": [
+      "Git",
+      "Docker",
+      "VS Code",
+      "IntelliJ IDEA",
+      "Postman",
+      "Jira"
+    ]
+  },
+  "languages": [
+    {
+      "language": "Vietnamese",
+      "proficiency": "Native"
+    },
+    {
+      "language": "English",
+      "proficiency": "IELTS 7.0",
+      "certificate": "IELTS 7.0"
+    }
+  ],
+  "projects": [
+    {
+      "name": "E-Commerce Web Application",
+      "description": "Full-stack e-commerce platform using React, Node.js, Express, and MongoDB. Implemented JWT auth, shopping cart, Stripe payment. Deployed on AWS EC2. Grade: 9.2/10.",
+      "technologies": [
+        "React",
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "AWS EC2"
+      ]
+    },
+    {
+      "name": "Student Management System",
+      "description": "Normalized database schema (3NF) with 15 tables. Built CRUD interface using Python Flask and MySQL with RBAC.",
+      "technologies": [
+        "Python",
+        "Flask",
+        "MySQL"
+      ]
+    }
+  ],
+  "activities": [
+    "Vice President, HUST IT Club (2021-2022) — organized 3 hackathons with 200+ participants",
+    "Volunteer, CoderDojo Vietnam — taught basic coding to 50+ children aged 10-14",
+    "3rd Prize, ICPC Vietnam Southern Regional 2021"
+  ],
+  "references": [
+    {
+      "name": "Dr. Tran Van Hoang",
+      "title": "Associate Professor",
+      "organization": "HUST",
+      "email": "hoang.tranvan@hust.edu.vn",
+      "phone": "(+84) 983 456 789"
+    },
+    {
+      "name": "Ms. Le Thi Thuy",
+      "title": "Team Lead",
+      "organization": "FPT Software",
+      "email": "thuy.lethi@fpt.com.vn",
+      "phone": "(+84) 901 234 567"
+    }
+  ],
+  "metadata": {
+    "form_type": "freeform"
+  }
+}

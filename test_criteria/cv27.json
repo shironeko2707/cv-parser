@@ -1,0 +1,67 @@
+{
+  "personal_info": {
+    "full_name": "Klaus Weber",
+    "email": "klaus.weber.eng@email.com",
+    "phone": "(+49) 89 1234 5678",
+    "city": "München",
+    "country": "Germany"
+  },
+  "summary": "Diplom-Ingenieur mit 17 Jahren Erfahrung in der Automobil- und Luftfahrtbranche.",
+  "education": [
+    {
+      "degree": "Dr.-Ing. Maschinenbau (Promotion)",
+      "institution": "Technische Universität München (TUM)",
+      "year_start": "2007",
+      "year_end": "2010"
+    },
+    {
+      "degree": "Dipl.-Ing. Maschinenbau (Diplom)",
+      "institution": "RWTH Aachen",
+      "year_start": "2002",
+      "year_end": "2007"
+    }
+  ],
+  "work_experience": [
+    {
+      "title": "Engineering Manager — Powertrain",
+      "company": "BMW Group, München",
+      "start_date": "01.03.2019",
+      "end_date": "Present",
+      "is_current": true
+    },
+    {
+      "title": "Senior Mechanical Engineer",
+      "company": "Airbus Operations GmbH, Hamburg",
+      "start_date": "15.06.2014",
+      "end_date": "28.02.2019"
+    },
+    {
+      "title": "Mechanical Engineer",
+      "company": "Robert Bosch GmbH, Stuttgart",
+      "start_date": "01.09.2010",
+      "end_date": "31.05.2014"
+    }
+  ],
+  "certifications": [
+    "Six Sigma Black Belt (ASQ) — 2019",
+    "PMP — Project Management Professional (PMI) — 2017",
+    "EASA Part 66 B1.1 Aircraft Maintenance License — 2014"
+  ],
+  "patents": [
+    "EP1234567B1 — Verstärkungsstruktur für Flugzeugkomponenten (2020)",
+    "DE102015008341A1 — Einspritzventil mit optimiertem Strömungsverhalten (2017)"
+  ],
+  "languages": [
+    {
+      "language": "German",
+      "proficiency": "Muttersprache"
+    },
+    {
+      "language": "English",
+      "proficiency": "C2 — Cambridge CPE"
+    }
+  ],
+  "metadata": {
+    "form_type": "freeform"
+  }
+}

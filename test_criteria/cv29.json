@@ -1,0 +1,73 @@
+{
+  "personal_info": {
+    "full_name": "Nguyễn Thị Hồng Vân",
+    "email": "vannguyen.marketing@email.com",
+    "phone": "(+84) 988 234 567",
+    "city": "Đà Nẵng",
+    "country": "Vietnam"
+  },
+  "summary": "Marketing Manager with 8 years of experience building brands across FMCG and tech in Vietnam and SEA markets.",
+  "education": [
+    {
+      "degree": "MBA Marketing — Dean's List",
+      "institution": "University of Economics HCMC (UEH)",
+      "year_start": "2017",
+      "year_end": "2019",
+      "gpa": "3.8/4.0"
+    },
+    {
+      "degree": "B.A. International Business",
+      "institution": "Foreign Trade University (FTU), Hanoi",
+      "year_start": "2012",
+      "year_end": "2016",
+      "gpa": "3.7/4.0"
+    }
+  ],
+  "work_experience": [
+    {
+      "title": "Senior Marketing Manager",
+      "company": "Vinamilk / Vinamilk Brand Division",
+      "start_date": "Mar 2021",
+      "end_date": "Present",
+      "is_current": true
+    },
+    {
+      "title": "Marketing Manager",
+      "company": "Tiki Corporation (E-commerce)",
+      "start_date": "Jul 2018",
+      "end_date": "Feb 2021"
+    },
+    {
+      "title": "Brand Executive",
+      "company": "Unilever Vietnam (Pond's, Dove)",
+      "start_date": "Aug 2016",
+      "end_date": "Jun 2018"
+    }
+  ],
+  "certifications": [
+    "Google Ads Certified — Search, Display, Video, Measurement (2023)",
+    "Meta Blueprint Certified — Facebook Media Planning Professional (2024)",
+    "HubSpot Inbound Marketing Certification (2022)"
+  ],
+  "awards": [
+    "MMA Smarties Vietnam — Silver, Brand Marketing 2023",
+    "Marketing Magazine Vietnam — Top 30 Under 30 2020"
+  ],
+  "languages": [
+    {
+      "language": "Vietnamese",
+      "proficiency": "Native"
+    },
+    {
+      "language": "English",
+      "proficiency": "IELTS 7.5"
+    },
+    {
+      "language": "Mandarin Chinese",
+      "proficiency": "HSK 4"
+    }
+  ],
+  "metadata": {
+    "form_type": "freeform"
+  }
+}

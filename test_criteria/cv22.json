@@ -1,0 +1,71 @@
+{
+  "personal_info": {
+    "full_name": "Robert Alan Patel",
+    "email": "robert.patel.cpa@email.com",
+    "phone": "(+1) 212 555 0398",
+    "city": "Jersey City",
+    "country": "US"
+  },
+  "summary": "Results-driven CPA with 13 years of progressive experience in corporate accounting, SOX compliance, and financial reporting.",
+  "education": [
+    {
+      "degree": "Master of Business Administration (MBA) — Finance",
+      "institution": "NYU Stern School of Business",
+      "year_start": "2015",
+      "year_end": "2017",
+      "gpa": "3.8/4.0"
+    },
+    {
+      "degree": "Bachelor of Science (B.S.) in Accounting, magna cum laude",
+      "institution": "Rutgers University, New Brunswick",
+      "year_start": "2008",
+      "year_end": "2012",
+      "gpa": "3.78/4.0"
+    }
+  ],
+  "work_experience": [
+    {
+      "title": "Senior Financial Controller",
+      "company": "Hudson Capital Markets, New York, NY",
+      "start_date": "Aug 2020",
+      "end_date": "Present",
+      "is_current": true
+    },
+    {
+      "title": "Assistant Controller — Financial Reporting",
+      "company": "Greenwich Financial Holdings, Stamford, CT",
+      "start_date": "Mar 2017",
+      "end_date": "Jul 2020"
+    },
+    {
+      "title": "Senior Accountant — Audit & Advisory",
+      "company": "Deloitte & Touche LLP, New York, NY",
+      "start_date": "Sep 2014",
+      "end_date": "Feb 2017"
+    },
+    {
+      "title": "Staff Accountant",
+      "company": "PricewaterhouseCoopers LLP, New York, NY",
+      "start_date": "Aug 2012",
+      "end_date": "Aug 2014"
+    }
+  ],
+  "certifications": [
+    "Certified Public Accountant (CPA) — New York State #0876543 — Active since 2013",
+    "Certified Fraud Examiner (CFE) — ACFE — Obtained 2019",
+    "AWS Cloud Practitioner Certification — 2023"
+  ],
+  "languages": [
+    {
+      "language": "English",
+      "proficiency": "Native"
+    },
+    {
+      "language": "Hindi",
+      "proficiency": "Fluent"
+    }
+  ],
+  "metadata": {
+    "form_type": "freeform"
+  }
+}

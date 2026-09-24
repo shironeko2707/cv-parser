@@ -1,0 +1,80 @@
+{
+  "personal_info": {
+    "full_name": "Sarah Elizabeth Morgan",
+    "email": "sarah.morgan.md@email.com",
+    "phone": "(+1) 415 555 0345",
+    "city": "San Francisco",
+    "country": "US"
+  },
+  "summary": "Triple-board-certified internist with 11 years of clinical experience in hospital medicine, clinical research, and medical education.",
+  "education": [
+    {
+      "degree": "Doctor of Medicine (M.D.)",
+      "institution": "Harvard Medical School, Boston",
+      "year_start": "2007",
+      "year_end": "2011"
+    },
+    {
+      "degree": "Doctor of Philosophy (Ph.D.) in Cardiovascular Epidemiology",
+      "institution": "Harvard T.H. Chan School of Public Health",
+      "year_start": "2004",
+      "year_end": "2007"
+    },
+    {
+      "degree": "Bachelor of Arts (B.A.) in Bioethics, summa cum laude",
+      "institution": "Yale University, New Haven",
+      "year_start": "2000",
+      "year_end": "2004",
+      "gpa": "3.95/4.0"
+    },
+    {
+      "degree": "Internal Medicine Residency",
+      "institution": "Massachusetts General Hospital",
+      "year_start": "2011",
+      "year_end": "2014"
+    }
+  ],
+  "work_experience": [
+    {
+      "title": "Attending Hospitalist — Internal Medicine",
+      "company": "UCSF Medical Center, San Francisco",
+      "start_date": "Jul 2018",
+      "end_date": "Present",
+      "is_current": true
+    },
+    {
+      "title": "Attending Hospitalist",
+      "company": "Stanford Health Care, Stanford, CA",
+      "start_date": "Aug 2014",
+      "end_date": "Jun 2018"
+    },
+    {
+      "title": "Internal Medicine Resident (Categorical)",
+      "company": "Massachusetts General Hospital, Boston",
+      "start_date": "Jun 2011",
+      "end_date": "Jun 2014"
+    }
+  ],
+  "certifications": [
+    "American Board of Internal Medicine — Certified 2014, Recertified 2024",
+    "California Medical License #A123456 — Active through 12/2026",
+    "Advanced Cardiac Life Support (ACLS) — Recertified 2024"
+  ],
+  "languages": [
+    {
+      "language": "English",
+      "proficiency": "Native"
+    },
+    {
+      "language": "Spanish",
+      "proficiency": "Fluent — Medical Interpreter Certified"
+    }
+  ],
+  "publications": [
+    "Morgan SE, et al. Outcomes of Early Discharge Protocol in CHF Patients. New England Journal of Medicine, 2023.",
+    "Morgan SE, Patel R. Sex Differences in Acute MI Presentation Patterns. Circulation, 2021."
+  ],
+  "metadata": {
+    "form_type": "freeform"
+  }
+}

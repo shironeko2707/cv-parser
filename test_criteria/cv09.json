@@ -1,0 +1,147 @@
+{
+  "personal_info": {
+    "full_name": "Tran Thi Bich Ngoc",
+    "date_of_birth": "05/09/1985",
+    "gender": "Female",
+    "nationality": "Vietnamese",
+    "id_number": "048085234567",
+    "phone": "(+84) 935 678 901",
+    "email": "ngoc.ttb@vnu.edu.vn",
+    "address": "15 Xuan Thuy, Cau Giay, Hanoi (Campus Housing)",
+    "city": "Hanoi",
+    "country": "Vietnam"
+  },
+  "education": [
+    {
+      "degree": "Ph.D.",
+      "field_of_study": "Applied Linguistics",
+      "institution": "University of Melbourne, Australia",
+      "year_start": "2012",
+      "year_end": "2016",
+      "classification": "Distinction"
+    },
+    {
+      "degree": "M.A.",
+      "field_of_study": "TESOL",
+      "institution": "University of Nottingham, UK",
+      "year_start": "2009",
+      "year_end": "2010",
+      "classification": "Merit"
+    },
+    {
+      "degree": "B.A.",
+      "field_of_study": "English Language & Literature",
+      "institution": "University of Da Nang",
+      "year_start": "2003",
+      "year_end": "2007",
+      "classification": "Excellent"
+    }
+  ],
+  "work_experience": [
+    {
+      "title": "Lecturer (Giang vien chinh)",
+      "company": "Faculty of Linguistics, VNU-HN",
+      "start_date": "09/2018",
+      "end_date": "Present",
+      "is_current": true
+    },
+    {
+      "title": "Post-doctoral Researcher",
+      "company": "University of Melbourne",
+      "start_date": "01/2017",
+      "end_date": "08/2018",
+      "is_current": false
+    },
+    {
+      "title": "English Language Instructor",
+      "company": "University of Da Nang",
+      "start_date": "09/2010",
+      "end_date": "12/2011",
+      "is_current": false
+    },
+    {
+      "title": "ESL Teacher",
+      "company": "British Council, Da Nang",
+      "start_date": "06/2007",
+      "end_date": "08/2009",
+      "is_current": false
+    }
+  ],
+  "publications": [
+    {
+      "title": "Cross-cultural Pragmatics in Vietnamese EFL Classrooms",
+      "venue": "Applied Linguistics Review",
+      "year": "2023",
+      "type": "journal_article",
+      "index": "SSCI Q1"
+    },
+    {
+      "title": "Learner Autonomy and Digital Literacy: A Mixed-Methods Study",
+      "venue": "TESOL Quarterly",
+      "year": "2022",
+      "type": "journal_article",
+      "index": "SSCI Q1"
+    },
+    {
+      "title": "Corpus-based Analysis of Vietnamese Academic Writing",
+      "venue": "AILA World Congress 2021",
+      "year": "2021",
+      "type": "conference_paper",
+      "index": "Scopus"
+    },
+    {
+      "title": "Technology-Enhanced Language Learning in Southeast Asia",
+      "venue": "Routledge Handbook of CALL",
+      "year": "2020",
+      "type": "book_chapter",
+      "index": "Scopus"
+    },
+    {
+      "title": "NAFOSTED Grant No. 602.05-2020.01 (PI)",
+      "venue": "VND 800M — 3 years",
+      "year": "2020",
+      "type": "other"
+    }
+  ],
+  "languages": [
+    {
+      "language": "Vietnamese",
+      "proficiency": "Native"
+    },
+    {
+      "language": "English",
+      "proficiency": "Excellent",
+      "certificate": "IELTS 8.5 (2022)"
+    },
+    {
+      "language": "French",
+      "proficiency": "Good",
+      "certificate": "DELF B2 (2018)"
+    },
+    {
+      "language": "Japanese",
+      "proficiency": "Basic",
+      "certificate": "JLPT N4 (2021)"
+    }
+  ],
+  "skills": {
+    "tools": [
+      "MS Office (Advanced)",
+      "SPSS",
+      "NVivo",
+      "R (Intermediate)",
+      "LaTeX",
+      "Moodle LMS"
+    ]
+  },
+  "activities": [
+    "AILA",
+    "TESOL International",
+    "Vietnam Linguistics Society"
+  ],
+  "metadata": {
+    "form_type": "structured_form",
+    "form_id": "MOET-CV-2024/A1",
+    "organization": "Ministry of Education and Training"
+  }
+}

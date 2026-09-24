@@ -1,0 +1,90 @@
+{
+  "personal_info": {
+    "full_name": "Le Hoang Nam",
+    "date_of_birth": "18/11/1991",
+    "gender": "Male",
+    "id_number": "036091005678",
+    "phone": "(+84) 976 543 210",
+    "email": "nam.lehoang@vietbank.com.vn"
+  },
+  "current_employment": {
+    "employee_id": "VB-2019-04521",
+    "department": "Retail Banking — Personal Lending",
+    "position": "Senior Credit Officer",
+    "branch": "Dong Da Branch, Hanoi",
+    "direct_manager": "Nguyen Van Tuan — Branch Manager",
+    "grade_level": "Level 5 — Senior Officer",
+    "years_in_role": "3 years 8 months",
+    "performance_rating": "Exceeds Expectations (4/5)",
+    "date_of_joining": "15/04/2019"
+  },
+  "position_applied": {
+    "title": "Digital Product Analyst",
+    "department": "Digital Banking & Innovation",
+    "available_from": "01/04/2025"
+  },
+  "education": [
+    {
+      "degree": "B.A.",
+      "field_of_study": "Banking & Finance",
+      "institution": "Banking Academy of Vietnam",
+      "year_start": "2009",
+      "year_end": "2013",
+      "gpa": "3.5/4.0"
+    },
+    {
+      "degree": "M.S.",
+      "field_of_study": "Financial Technology",
+      "institution": "RMIT Vietnam",
+      "year_start": "2021",
+      "year_end": "2023",
+      "gpa": "3.7/4.0"
+    }
+  ],
+  "certifications": [
+    {
+      "name": "Certified Credit Professional (CCP)",
+      "issuer": "Vietnam Banking Association",
+      "year": "2020"
+    },
+    {
+      "name": "AWS Cloud Practitioner",
+      "year": "2023"
+    },
+    {
+      "name": "Google Data Analytics Professional Certificate",
+      "year": "2024"
+    }
+  ],
+  "skills": {
+    "tools": [
+      "Excel (Advanced)",
+      "SQL",
+      "Python (Intermediate)",
+      "Power BI",
+      "Jira",
+      "Figma (Basic)"
+    ]
+  },
+  "languages": [
+    {
+      "language": "Vietnamese",
+      "proficiency": "Native"
+    },
+    {
+      "language": "English",
+      "proficiency": "IELTS 6.5",
+      "certificate": "IELTS 6.5"
+    },
+    {
+      "language": "Korean",
+      "proficiency": "TOPIK II Level 3",
+      "certificate": "TOPIK II Level 3"
+    }
+  ],
+  "metadata": {
+    "form_type": "structured_form",
+    "form_id": "VB-HR-ITR-2024",
+    "organization": "VietBank Joint Stock Commercial Bank"
+  }
+}

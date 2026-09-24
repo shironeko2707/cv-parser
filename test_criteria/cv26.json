@@ -1,0 +1,62 @@
+{
+  "personal_info": {
+    "full_name": "Trần Minh Quân",
+    "email": "tranquan.dev@email.com",
+    "phone": "(+84) 909 876 543",
+    "city": "TP. Hồ Chí Minh",
+    "country": "Vietnam"
+  },
+  "summary": "Kỹ sư phần mềm với 6 năm kinh nghiệm phát triển backend Java/Spring Boot và hệ thống microservices.",
+  "education": [
+    {
+      "degree": "Kỹ sư Khoa học Máy tính (tốt nghiệp loại Giỏi)",
+      "institution": "Trường Đại học Bách Khoa TP.HCM (HCMUT)",
+      "year_start": "2013",
+      "year_end": "2017",
+      "gpa": "3.6/4.0"
+    }
+  ],
+  "work_experience": [
+    {
+      "title": "Senior Backend Engineer",
+      "company": "Tiki Corporation",
+      "start_date": "Tháng 6/2021",
+      "end_date": "Present",
+      "is_current": true
+    },
+    {
+      "title": "Backend Engineer",
+      "company": "VNG Corporation (ZaloPay)",
+      "start_date": "Tháng 3/2019",
+      "end_date": "Tháng 5/2021"
+    },
+    {
+      "title": "Java Developer",
+      "company": "FPT Software",
+      "start_date": "Tháng 8/2017",
+      "end_date": "Tháng 2/2019"
+    }
+  ],
+  "certifications": [
+    "Oracle Certified Professional Java SE 11 Developer — 2020",
+    "AWS Solutions Architect Associate — 2022",
+    "Certified Kubernetes Administrator (CKA) — 2023"
+  ],
+  "languages": [
+    {
+      "language": "Tiếng Việt",
+      "proficiency": "Bản ngữ"
+    },
+    {
+      "language": "English",
+      "proficiency": "TOEFL iBT 95"
+    },
+    {
+      "language": "Japanese",
+      "proficiency": "JLPT N3"
+    }
+  ],
+  "metadata": {
+    "form_type": "structured_form"
+  }
+}

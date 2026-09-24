@@ -1,0 +1,19 @@
+# Company-internal schema files (keep local only)
+*.xlsx
+schema.json
+
+# Generated / runtime output
+cv_test_data/
+output/
+review_results/
+*_report.json
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Local tooling
+.claude/
+.DS_Store

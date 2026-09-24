@@ -1,0 +1,54 @@
+{
+  "personal_info": {
+    "full_name": "Olivia Chen",
+    "email": "olivia.chen.cs@email.com",
+    "phone": "(+1) 408 555 0298",
+    "city": "San Jose",
+    "country": "US"
+  },
+  "summary": "Recent CS graduate seeking a full-time software engineering role.",
+  "education": [
+    {
+      "degree": "B.S. Computer Science",
+      "institution": "University of California, Berkeley",
+      "year_start": "2021",
+      "year_end": "2025",
+      "gpa": "3.85/4.0"
+    }
+  ],
+  "work_experience": [
+    {
+      "title": "Backend Engineering Intern",
+      "company": "Visa Inc., San Francisco (Summer 2024)",
+      "start_date": "Jun 2024",
+      "end_date": "Aug 2024"
+    },
+    {
+      "title": "Computer Science Tutor",
+      "company": "UC Berkeley Student Learning Center",
+      "start_date": "Sep 2023",
+      "end_date": "May 2024"
+    }
+  ],
+  "projects": [
+    {
+      "name": "Course Enrollment Platform",
+      "description": "Full-stack web app in team of 5 using React, Flask, PostgreSQL",
+      "technologies": [
+        "React",
+        "Flask",
+        "PostgreSQL"
+      ]
+    },
+    {
+      "name": "Pac-Man AI",
+      "description": "Implemented search and adversarial agents",
+      "technologies": [
+        "Python"
+      ]
+    }
+  ],
+  "metadata": {
+    "form_type": "freeform"
+  }
+}

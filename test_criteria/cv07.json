@@ -1,0 +1,143 @@
+{
+  "personal_info": {
+    "full_name": "Maria Isabella Rodriguez Garcia",
+    "date_of_birth": "14/06/1992",
+    "gender": "Female",
+    "nationality": "Mexican / US Permanent Resident",
+    "address": "1247 Oak Street, Apt 5B, Brooklyn, NY 11201",
+    "city": "Brooklyn",
+    "country": "US",
+    "phone": "+1 (347) 555-0134",
+    "email": "m.rodriguez@email.com",
+    "emergency_contact": {
+      "name": "Carlos Rodriguez",
+      "relationship": "Brother",
+      "phone": "+1 (347) 555-0198"
+    }
+  },
+  "position_applied": {
+    "title": "Senior Risk Analyst — Credit Risk Division",
+    "department": "Risk Management",
+    "reference_number": "AFG-2024-RA-0847",
+    "expected_salary": "USD 125,000 — 145,000 per annum",
+    "available_from": "01/03/2025",
+    "notice_period": "30 days"
+  },
+  "education": [
+    {
+      "degree": "M.S.",
+      "field_of_study": "Financial Engineering",
+      "institution": "Columbia University, NY",
+      "year_start": "2014",
+      "year_end": "2016",
+      "gpa": "3.85/4.0"
+    },
+    {
+      "degree": "B.S.",
+      "field_of_study": "Applied Mathematics",
+      "institution": "UNAM, Mexico City",
+      "year_start": "2010",
+      "year_end": "2014",
+      "gpa": "9.1/10"
+    }
+  ],
+  "certifications": [
+    {
+      "name": "CFA Level III",
+      "issuer": "CFA Institute",
+      "year": "2019"
+    },
+    {
+      "name": "FRM Certification",
+      "issuer": "GARP",
+      "year": "2017"
+    }
+  ],
+  "work_experience": [
+    {
+      "title": "Risk Analyst II",
+      "company": "JPMorgan Chase",
+      "location": "NY",
+      "start_date": "Mar 2020",
+      "end_date": "Present",
+      "is_current": true,
+      "responsibilities": [
+        "Develop and validate credit risk models (PD, LGD, EAD) for $50B+ commercial loan portfolio",
+        "Conduct stress testing and scenario analysis per CCAR/DFAST requirements",
+        "Build automated risk reporting dashboards using Python, SQL, and Tableau",
+        "Collaborate with Front Office and Compliance on risk limit framework design",
+        "Present quarterly risk assessments to Senior Risk Committee (SVP+ audience)"
+      ]
+    },
+    {
+      "title": "Risk Analyst I",
+      "company": "Citibank",
+      "location": "NY",
+      "start_date": "Jul 2016",
+      "end_date": "Feb 2020",
+      "is_current": false
+    },
+    {
+      "title": "Quantitative Intern",
+      "company": "Goldman Sachs",
+      "location": "NY",
+      "start_date": "Jun 2015",
+      "end_date": "Aug 2015",
+      "is_current": false
+    }
+  ],
+  "skills": {
+    "programming_languages": [
+      "Python",
+      "R",
+      "SAS",
+      "SQL",
+      "VBA"
+    ],
+    "tools": [
+      "Tableau",
+      "Bloomberg Terminal"
+    ],
+    "other": [
+      "Monte Carlo",
+      "GARCH",
+      "Logistic Regression",
+      "Random Forest",
+      "XGBoost"
+    ]
+  },
+  "languages": [
+    {
+      "language": "Spanish",
+      "proficiency": "Native"
+    },
+    {
+      "language": "English",
+      "proficiency": "Fluent"
+    },
+    {
+      "language": "French",
+      "proficiency": "Intermediate (B1)"
+    }
+  ],
+  "references": [
+    {
+      "name": "Dr. Sarah Chen",
+      "title": "VP Risk Analytics",
+      "organization": "JPMorgan Chase",
+      "email": "sarah.chen@jpmorgan.com",
+      "phone": "+1 (212) 555-0156"
+    },
+    {
+      "name": "Prof. David Martinez",
+      "organization": "Columbia University",
+      "email": "d.martinez@columbia.edu",
+      "phone": "+1 (212) 555-0178"
+    }
+  ],
+  "metadata": {
+    "form_type": "structured_form",
+    "form_id": "HR-APP-2024-003",
+    "organization": "Apex Financial Group"
+  }
+}
