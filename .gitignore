@@ -17,3 +17,10 @@ venv/
 # Local tooling
 .claude/
 .DS_Store
+uploads/
+
+# Fine-tuning artifacts (contain generated data / personal data from real CVs)
+data/
+labels/
+runs/
+*.gguf

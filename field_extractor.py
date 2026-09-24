@@ -362,9 +362,9 @@ def detect_sections(doc: ExtractedDocument) -> list[Section]:
         if not line_clean:
             continue
 
-        is_header = line_clean.startswith("[SECTION]")
+        is_header = line_clean.startswith("## ")
         if is_header:
-            line_clean = line_clean.replace("[SECTION]", "").strip()
+            line_clean = line_clean[3:].strip()
 
         # Skip very long lines — section headers are short
         if len(line_clean.split()) > 8:
@@ -397,10 +397,10 @@ def detect_sections(doc: ExtractedDocument) -> list[Section]:
         section_lines = []
         for li in range(start + 1, end):
             stripped = lines[li].strip()
-            if stripped.startswith("[SECTION]"):
+            if stripped.startswith("## "):
                 if not include_bold or li in section_header_lines:
                     continue
-                inner = stripped.replace("[SECTION]", "").strip()
+                inner = stripped[3:].strip()
                 if inner:
                     section_lines.append(inner)
                 continue

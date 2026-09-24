@@ -4,7 +4,7 @@ applying picklist resolution and date normalization.
 """
 import json
 from schema_loader import Schema, FieldDef
-from field_extractor import ExtractedFields
+from schema_mapping import ExtractedFields
 from picklist_mapper import PicklistMapper
 from date_normalizer import to_date_string
 
@@ -129,7 +129,7 @@ def to_json_string(data: list[dict], indent: int = 4) -> str:
 if __name__ == "__main__":
     from schema_loader import load_schema
     from text_extractor import extract
-    from field_extractor import extract_fields
+    from ai_extractor import extract_fields
     import sys
 
     if len(sys.argv) > 1:
@@ -137,7 +137,7 @@ if __name__ == "__main__":
         mapper = PicklistMapper(schema)
 
         doc = extract(sys.argv[1])
-        fields = extract_fields(doc)
+        fields = extract_fields(doc, schema=schema, mapper=mapper)
         result = assemble_json(fields, schema, mapper)
         print(to_json_string(result))
     else:

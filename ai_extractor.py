@@ -1,315 +1,209 @@
 """
-AI-based field extraction using a self-hosted LLM (llama.cpp / Ollama).
-Replaces the rule-based field_extractor.py with an LLM call that
-extracts structured data from CV text.
+AI-based field extraction using a self-hosted SLM (Ollama / llama.cpp / vLLM).
+
+Flow:  layout text -> [chunks] -> SLM -> canonical JSON -> grounding/repair
+       -> schema_mapping -> ExtractedFields (SAP field ids)
+
+The SLM only ever produces the canonical JSON defined in canonical.py, with
+the exact prompt used for fine-tuning (training/). Constrained decoding with
+the canonical JSON Schema is requested so small models always emit valid JSON.
 """
+from __future__ import annotations
+
 import json
 import os
 import re
+
 import requests
-from dataclasses import dataclass, field
+
+from canonical import (
+    build_messages, coerce, find_hints, ground, json_schema, merge_canonical,
+    split_for_llm,
+)
 from schema_loader import Schema
+from schema_mapping import ExtractedFields, map_canonical  # noqa: F401  (re-exported)
 from text_extractor import ExtractedDocument, extract_key_value_pairs
 
-
 # --- Configuration ---
-# llama.cpp server:  http://localhost:8080/v1/chat/completions
-# Ollama:            http://localhost:11434/v1/chat/completions
+# llama.cpp server:  http://localhost:8080/v1
+# Ollama:            http://localhost:11434/v1
+# vLLM:              http://localhost:8000/v1
 LLM_BASE_URL = os.environ.get("LLM_BASE_URL", "http://localhost:11434/v1")
 LLM_MODEL = os.environ.get("LLM_MODEL", "gemma4:e2b")
 LLM_TIMEOUT = int(os.environ.get("LLM_TIMEOUT", "120"))
+LLM_API_KEY = os.environ.get("LLM_API_KEY", "")
+LLM_MAX_TOKENS = int(os.environ.get("LLM_MAX_TOKENS", "4096"))
+# ~4k tokens of CV text per call; longer CVs are split on section headings
+LLM_MAX_INPUT_CHARS = int(os.environ.get("LLM_MAX_INPUT_CHARS", "12000"))
+# json_schema (constrained decoding) | json (JSON mode) | off
+LLM_STRUCTURED = os.environ.get("LLM_STRUCTURED", "json_schema").lower()
+
+_structured_unsupported: set[str] = set()
 
 
-@dataclass
-class ExtractedFields:
-    personal: dict[str, str] = field(default_factory=dict)
-    education: list[dict[str, str]] = field(default_factory=list)
-    experience: list[dict[str, str]] = field(default_factory=list)
-    languages: list[dict[str, str]] = field(default_factory=list)
-    certificates: list[dict[str, str]] = field(default_factory=list)
-    awards: list[dict[str, str]] = field(default_factory=list)
-    courses: list[dict[str, str]] = field(default_factory=list)
-    family: list[dict[str, str]] = field(default_factory=list)
-    disciplinary: list[dict[str, str]] = field(default_factory=list)
-    raw_kv: dict[str, str] = field(default_factory=dict)
-    sections: list = field(default_factory=list)
-    confidence: dict[str, float] = field(default_factory=dict)
-
-
-# Build the extraction prompt from the schema
-def _build_field_spec(schema: Schema) -> str:
-    """Build a field specification string from the Excel schema for the prompt."""
-    lines = []
-    lines.append("TOP-LEVEL FIELDS (extract as flat key-value):")
-    for fd in schema.top_level_fields:
-        hint = ""
-        if fd.field_type == "DateTime":
-            hint = " (date, format: dd/mm/yyyy)"
-        elif fd.picklist_id:
-            hint = f" (pick closest match)"
-        req = " [REQUIRED]" if fd.required else ""
-        lines.append(f'  - "{fd.field_id}": {fd.label}{hint}{req}')
-
-    lines.append("")
-    lines.append("NESTED SECTIONS (extract as arrays of objects):")
-
-    section_labels = {
-        "education": "Education history",
-        "outsideWorkExperience": "Work / professional experience",
-        "languages": "Languages spoken",
-        "certificates": "Certifications and licenses",
-        "awards": "Awards and recognition",
-        "courses": "Training courses",
-        "familyMember": "Family members / emergency contacts",
-        "Disciplinary": "Disciplinary records",
-    }
-
-    for section_name, field_defs in schema.sections.items():
-        label = section_labels.get(section_name, section_name)
-        keys = []
-        for fd in field_defs:
-            if fd.nested_key:
-                hint = ""
-                if fd.field_type == "DateTime":
-                    hint = " (date)"
-                keys.append(f'"{fd.nested_key}": {fd.label}{hint}')
-        lines.append(f'  - "{section_name}": {label}')
-        lines.append(f'    Fields per entry: {{{", ".join(keys)}}}')
-
-    return "\n".join(lines)
-
-
-SYSTEM_PROMPT = """\
-You are a CV/resume data extraction engine. Your job is to extract structured information from CV text.
-
-RULES:
-1. Extract ONLY information explicitly present in the text. Never invent or guess.
-2. For names: "firstName" = family name, "middleName" = middle name(s), "lastName" = given name. For Vietnamese names like "Nguyễn Văn An": firstName=Nguyễn, middleName=Văn, lastName=An.
-3. For dates, output as dd/mm/yyyy when possible. If only year, output as 01/01/yyyy.
-4. If a field is not found in the text, omit it entirely — do NOT output null or empty string.
-5. For work experience: "startTitle" = job title, "employer" = company name, "description" = responsibilities/achievements as a single text block.
-6. For education: "otherSchool" = institution name, "degree" = degree name, "grade" = GPA or classification.
-7. Output ONLY valid JSON, no markdown, no explanation, no code fences."""
-
-
-def _build_user_prompt(cv_text: str, field_spec: str) -> str:
-    return f"""\
-Extract all fields from this CV into JSON format.
-
-FIELD SCHEMA:
-{field_spec}
-
-OUTPUT FORMAT (JSON object):
-{{
-  "personal": {{<top-level field_id: value>}},
-  "education": [{{<nested keys: value>}}, ...],
-  "outsideWorkExperience": [{{<nested keys: value>}}, ...],
-  "languages": [{{<nested keys: value>}}, ...],
-  "certificates": [{{<nested keys: value>}}, ...],
-  "awards": [{{<nested keys: value>}}, ...],
-  "courses": [{{<nested keys: value>}}, ...],
-  "familyMember": [{{<nested keys: value>}}, ...]
-}}
-
-CV TEXT:
----
-{cv_text}
----
-
-Extract all information and output as JSON:"""
-
-
-def _call_llm(system_prompt: str, user_prompt: str) -> str:
-    """Call the local LLM server via OpenAI-compatible API."""
-    url = f"{LLM_BASE_URL}/chat/completions"
-
-    payload = {
-        "model": LLM_MODEL,
-        "messages": [
-            {"role": "system", "content": system_prompt},
-            {"role": "user", "content": user_prompt},
-        ],
-        "temperature": 0.1,
-        "max_tokens": 4096,
+def call_llm(messages: list[dict], *, base_url: str | None = None, model: str | None = None,
+             api_key: str | None = None, max_tokens: int | None = None,
+             structured: str | None = None, timeout: int | None = None,
+             temperature: float = 0.0) -> str:
+    """Call an OpenAI-compatible chat endpoint and return the message text."""
+    base_url = (base_url or LLM_BASE_URL).rstrip("/")
+    model = model or LLM_MODEL
+    structured = (structured or LLM_STRUCTURED).lower()
+    url = f"{base_url}/chat/completions"
+    payload: dict = {
+        "model": model,
+        "messages": messages,
+        "temperature": temperature,
+        "max_tokens": max_tokens or LLM_MAX_TOKENS,
         "stream": False,
         "reasoning_effort": "none",
     }
+    key = f"{base_url}|{model}"
+    if structured == "json_schema" and key not in _structured_unsupported:
+        payload["response_format"] = {
+            "type": "json_schema",
+            "json_schema": {"name": "cv", "schema": json_schema(), "strict": True},
+        }
+    elif structured == "json" and key not in _structured_unsupported:
+        payload["response_format"] = {"type": "json_object"}
+    headers = {"Authorization": f"Bearer {api_key or LLM_API_KEY}"} if (api_key or LLM_API_KEY) else {}
 
     try:
-        resp = requests.post(url, json=payload, timeout=LLM_TIMEOUT)
+        resp = requests.post(url, json=payload, headers=headers, timeout=timeout or LLM_TIMEOUT)
+        if resp.status_code in (400, 422) and "response_format" in payload:
+            # server without structured-output support: retry unconstrained
+            _structured_unsupported.add(key)
+            payload.pop("response_format")
+            resp = requests.post(url, json=payload, headers=headers, timeout=timeout or LLM_TIMEOUT)
         resp.raise_for_status()
         data = resp.json()
-        return data["choices"][0]["message"]["content"]
+        return data["choices"][0]["message"]["content"] or ""
     except requests.ConnectionError:
         raise ConnectionError(
-            f"Cannot connect to LLM server at {LLM_BASE_URL}. "
-            f"Start it with: llama-server -m <model.gguf> --port 8080  "
-            f"OR: ollama serve"
+            f"Cannot connect to LLM server at {base_url}. "
+            f"Start it with: llama-server -m <model.gguf> --port 8080  OR: ollama serve"
         )
     except requests.Timeout:
         raise TimeoutError(
-            f"LLM request timed out after {LLM_TIMEOUT}s. "
-            f"Try increasing LLM_TIMEOUT or using a smaller model."
+            f"LLM request timed out after {timeout or LLM_TIMEOUT}s. "
+            f"Try increasing LLM_TIMEOUT or lowering LLM_MAX_INPUT_CHARS."
         )
-    except Exception as e:
-        raise RuntimeError(f"LLM API error: {e}")
+    except requests.HTTPError as e:
+        raise RuntimeError(f"LLM API error: {e}: {resp.text[:300]}")
 
 
-def _parse_llm_response(raw: str) -> dict:
-    """Parse JSON from the LLM response, handling common formatting issues."""
+def _close_truncated_json(text: str) -> str:
+    """Best-effort completion of JSON cut off by max_tokens."""
+    stack, in_str, esc = [], False, False
+    for ch in text:
+        if in_str:
+            if esc:
+                esc = False
+            elif ch == "\\":
+                esc = True
+            elif ch == '"':
+                in_str = False
+        elif ch == '"':
+            in_str = True
+        elif ch in "{[":
+            stack.append("}" if ch == "{" else "]")
+        elif ch in "}]" and stack:
+            stack.pop()
+    out = text + ('"' if in_str else "")
+    out = re.sub(r",\s*$", "", out)
+    out = re.sub(r',\s*"[^"]*"\s*:?\s*$', "", out)  # dangling key
+    return out + "".join(reversed(stack))
+
+
+def parse_llm_json(raw: str) -> dict:
+    """Parse JSON from the LLM response, handling fences, prose and truncation."""
     text = raw.strip()
-
-    # Strip markdown code fences if present
-    if text.startswith("```"):
-        text = re.sub(r"^```(?:json)?\s*\n?", "", text)
-        text = re.sub(r"\n?```\s*$", "", text)
-
-    # Try to find JSON object
+    text = re.sub(r"^```(?:json)?\s*", "", text)
+    text = re.sub(r"\s*```\s*$", "", text)
     start = text.find("{")
+    if start < 0:
+        raise ValueError(f"No JSON object in LLM output: {raw[:300]}")
+    text = text[start:]
     end = text.rfind("}")
-    if start >= 0 and end > start:
-        text = text[start:end + 1]
-
-    try:
-        return json.loads(text)
-    except json.JSONDecodeError:
-        # Try fixing common issues: trailing commas
-        fixed = re.sub(r",\s*([}\]])", r"\1", text)
-        try:
-            return json.loads(fixed)
-        except json.JSONDecodeError as e:
-            raise ValueError(f"Failed to parse LLM JSON output: {e}\nRaw: {raw[:500]}")
-
-
-def _map_to_extracted_fields(parsed: dict, schema: Schema) -> ExtractedFields:
-    """Map the parsed LLM JSON into ExtractedFields structure."""
-    result = ExtractedFields()
-
-    # Top-level personal fields
-    personal = parsed.get("personal", {})
-    if isinstance(personal, dict):
-        valid_ids = {fd.field_id for fd in schema.top_level_fields}
-        for key, value in personal.items():
-            if key in valid_ids and value:
-                result.personal[key] = str(value).strip()
-
-    # Section mappings: JSON key -> (ExtractedFields attribute, valid nested keys)
-    section_map = {
-        "education": "education",
-        "outsideWorkExperience": "experience",
-        "languages": "languages",
-        "certificates": "certificates",
-        "awards": "awards",
-        "courses": "courses",
-        "familyMember": "family",
-        "Disciplinary": "disciplinary",
-    }
-
-    valid_keys_per_section = {}
-    for section_name, field_defs in schema.sections.items():
-        valid_keys_per_section[section_name] = {
-            fd.nested_key for fd in field_defs if fd.nested_key
-        }
-
-    for json_key, attr_name in section_map.items():
-        entries = parsed.get(json_key, [])
-        if not isinstance(entries, list):
-            continue
-
-        valid_keys = valid_keys_per_section.get(json_key, set())
-        cleaned = []
-        for entry in entries:
-            if not isinstance(entry, dict):
+    candidates = [text[:end + 1]] if end > 0 else []
+    candidates.append(_close_truncated_json(text))
+    for cand in candidates:
+        for variant in (cand, re.sub(r",\s*([}\]])", r"\1", cand)):
+            try:
+                return json.loads(variant)
+            except json.JSONDecodeError:
                 continue
-            record = {}
-            for k, v in entry.items():
-                if k in valid_keys and v:
-                    record[k] = str(v).strip()
-            if record:
-                cleaned.append(record)
+    raise ValueError(f"Failed to parse LLM JSON output: {raw[:300]}")
 
-        setattr(result, attr_name, cleaned)
 
-    return result
+def extract_canonical(doc: ExtractedDocument, **llm_kwargs) -> tuple[dict, dict[str, float], list[str]]:
+    """Run the SLM over the document and return (canonical, confidence, warnings)."""
+    text = doc.layout_text or doc.raw_text
+    if not text.strip():
+        return {"personal": {}}, {}, ["Document has no extractable text"]
+
+    warnings: list[str] = []
+    chunks = split_for_llm(text, LLM_MAX_INPUT_CHARS)
+    if len(chunks) > 1:
+        warnings.append(f"Long CV split into {len(chunks)} LLM calls")
+    parts = []
+    for i, chunk in enumerate(chunks):
+        hints = find_hints(chunk, doc.links if i == 0 else None)
+        messages = build_messages(chunk, hints)
+        raw = call_llm(messages, **llm_kwargs)
+        try:
+            parsed = parse_llm_json(raw)
+        except ValueError:
+            # one retry: a different sample often fixes a malformed generation
+            raw = call_llm(messages, temperature=0.3, **llm_kwargs)
+            try:
+                parsed = parse_llm_json(raw)
+            except ValueError as e:
+                warnings.append(f"Chunk {i + 1}: {e}")
+                continue
+        parts.append(coerce(parsed))
+
+    merged = merge_canonical(parts) if parts else {"personal": {}}
+    all_hints = find_hints(text, doc.links)
+    grounded, confidence = ground(merged, text, all_hints)
+    dropped = [p for p, c in confidence.items() if c < 0.75]
+    if dropped:
+        warnings.append(f"Dropped {len(dropped)} value(s) not found in the CV text: "
+                        + ", ".join(dropped[:8]))
+    return grounded, confidence, warnings
 
 
 def extract_fields(doc: ExtractedDocument, cv_type: str = "free_form",
-                   schema: Schema | None = None) -> ExtractedFields:
-    """
-    Extract fields from document using a self-hosted LLM.
-    Falls back to returning empty fields if LLM is unavailable.
-    """
+                   schema: Schema | None = None, mapper=None) -> ExtractedFields:
+    """Extract SAP-keyed fields from a document using the self-hosted SLM."""
     if schema is None:
         from schema_loader import load_schema
         schema = load_schema()
 
-    # Prepare text: use layout text (preserves structure) + KV pairs
-    cv_text = doc.layout_text or doc.raw_text
-    if not cv_text.strip():
-        return ExtractedFields()
-
-    # Truncate if too long (most models have 8K-32K context)
-    max_chars = 12000
-    if len(cv_text) > max_chars:
-        cv_text = cv_text[:max_chars]
-
-    # Also include KV pairs as supplementary data
-    kv_pairs = extract_key_value_pairs(doc)
-    if kv_pairs:
-        kv_text = "\n".join(f"{k}: {v}" for k, v in kv_pairs.items())
-        cv_text += f"\n\nKEY-VALUE PAIRS FOUND:\n{kv_text}"
-
-    # Build prompt
-    field_spec = _build_field_spec(schema)
-    system_prompt = SYSTEM_PROMPT
-    user_prompt = _build_user_prompt(cv_text, field_spec)
-
-    # Call LLM
-    raw_response = _call_llm(system_prompt, user_prompt)
-
-    # Parse response
-    parsed = _parse_llm_response(raw_response)
-
-    # Map to ExtractedFields
-    result = _map_to_extracted_fields(parsed, schema)
-    result.raw_kv = kv_pairs
-
+    canonical, confidence, warnings = extract_canonical(doc)
+    result = map_canonical(canonical, schema, mapper)
+    result.confidence = confidence
+    result.warnings = warnings + list(doc.warnings)
+    result.raw_kv = extract_key_value_pairs(doc)
     return result
 
 
 if __name__ == "__main__":
     import sys
     from text_extractor import extract as extract_doc
-    from schema_loader import load_schema
 
     if len(sys.argv) < 2:
-        print("Usage: python ai_extractor.py <file.pdf|file.docx>")
+        print("Usage: python ai_extractor.py <cv file>")
         print()
-        print("Environment variables:")
-        print(f"  LLM_BASE_URL  = {LLM_BASE_URL}")
-        print(f"  LLM_MODEL     = {LLM_MODEL}")
-        print(f"  LLM_TIMEOUT   = {LLM_TIMEOUT}s")
-        print()
-        print("Examples:")
-        print("  # Ollama (default):")
-        print("  ollama pull gemma4:e2b && ollama serve")
-        print("  python ai_extractor.py resume.pdf")
-        print()
-        print("  # llama.cpp:")
-        print("  LLM_BASE_URL=http://localhost:8080/v1 LLM_MODEL=gemma4-e2b python ai_extractor.py resume.pdf")
+        print("Prints the canonical JSON produced by the SLM (before SAP mapping).")
+        print(f"  LLM_BASE_URL        = {LLM_BASE_URL}")
+        print(f"  LLM_MODEL           = {LLM_MODEL}")
+        print(f"  LLM_STRUCTURED      = {LLM_STRUCTURED}")
+        print(f"  LLM_MAX_INPUT_CHARS = {LLM_MAX_INPUT_CHARS}")
         sys.exit(1)
 
-    schema = load_schema()
     doc = extract_doc(sys.argv[1])
-    fields = extract_fields(doc, schema=schema)
-
-    print("=== Personal ===")
-    for k, v in fields.personal.items():
-        print(f"  {k}: {v}")
-
-    for section_name in ["education", "experience", "languages", "certificates", "awards"]:
-        entries = getattr(fields, section_name)
-        if entries:
-            print(f"\n=== {section_name} ({len(entries)} entries) ===")
-            for i, e in enumerate(entries):
-                print(f"  [{i}] {e}")
+    canonical, confidence, warnings = extract_canonical(doc)
+    print(json.dumps(canonical, indent=2, ensure_ascii=False))
+    for w in warnings:
+        print(f"WARNING: {w}", file=sys.stderr)
