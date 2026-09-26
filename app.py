@@ -19,6 +19,7 @@ from flask import (
 
 from main import parse_single_cv
 from json_assembler import to_json_string
+from text_extractor import SUPPORTED_EXTENSIONS
 
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
@@ -26,7 +27,7 @@ app.secret_key = os.urandom(24)
 UPLOAD_DIR = Path(__file__).parent / "uploads"
 UPLOAD_DIR.mkdir(exist_ok=True)
 
-ALLOWED_EXT = {".pdf", ".docx", ".doc"}
+ALLOWED_EXT = SUPPORTED_EXTENSIONS
 
 # In-memory store for batch job progress
 _jobs: dict[str, dict] = {}
@@ -135,7 +136,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
       <p>Click or drag a CV file here</p>
       <div class="hint">PDF, DOCX</div>
     </div>
-    <input type="file" id="file-single" class="file-input" accept=".pdf,.docx,.doc">
+    <input type="file" id="file-single" class="file-input" accept=".pdf,.docx,.doc,.rtf,.odt,.txt,.md,.html,.htm,.png,.jpg,.jpeg,.tif,.tiff,.bmp,.webp">
     <div class="file-list" id="fl-single"></div>
     <div class="actions">
       <button class="btn btn-primary" id="btn-parse" disabled onclick="parseSingle()">Parse CV</button>
@@ -151,7 +152,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
       <p>Click or drag multiple CV files here</p>
       <div class="hint">PDF, DOCX &mdash; up to 200 files</div>
     </div>
-    <input type="file" id="file-batch" class="file-input" accept=".pdf,.docx,.doc" multiple>
+    <input type="file" id="file-batch" class="file-input" accept=".pdf,.docx,.doc,.rtf,.odt,.txt,.md,.html,.htm,.png,.jpg,.jpeg,.tif,.tiff,.bmp,.webp" multiple>
     <div class="file-list" id="fl-batch"></div>
     <div class="actions">
       <button class="btn btn-primary" id="btn-batch" disabled onclick="startBatch()">Parse All</button>

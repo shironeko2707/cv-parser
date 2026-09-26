@@ -21,7 +21,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
 from schema_loader import load_schema
-from text_extractor import extract
+from text_extractor import SUPPORTED_EXTENSIONS, extract
 from ai_extractor import extract_fields
 from picklist_mapper import PicklistMapper
 from json_assembler import assemble_json, to_json_string
@@ -54,7 +54,8 @@ def parse_single_cv(filepath: str) -> dict:
         doc = extract(filepath)
 
         # Step 2: AI-based field extraction via self-hosted LLM
-        fields = extract_fields(doc, schema=schema)
+        fields = extract_fields(doc, schema=schema, mapper=mapper)
+        result["warnings"].extend(fields.warnings)
 
         # Step 3: Assemble JSON (picklist resolution, date normalization, field ordering)
         json_data = assemble_json(fields, schema, mapper)
@@ -72,6 +73,7 @@ def parse_single_cv(filepath: str) -> dict:
                 result["missing_required"].append(f.field_id)
 
         result["confidence_scores"] = fields.confidence
+        result["canonical"] = fields.canonical
         result["data"] = json_data
 
         if result["missing_required"]:
@@ -105,9 +107,8 @@ def run_batch(input_dir: str, output_dir: str, workers: int = 4):
     output_path = Path(output_dir)
     output_path.mkdir(parents=True, exist_ok=True)
 
-    files = []
-    for ext in ("*.pdf", "*.PDF", "*.docx", "*.DOCX", "*.doc"):
-        files.extend(input_path.glob(ext))
+    files = sorted(p for p in input_path.iterdir()
+                   if p.is_file() and p.suffix.lower() in SUPPORTED_EXTENSIONS)
 
     if not files:
         print(f"No CV files found in {input_dir}")
@@ -218,7 +219,7 @@ def run_single(filepath: str, output: str | None = None):
 
 def main():
     parser = argparse.ArgumentParser(description="CV Parser Pipeline")
-    parser.add_argument("input", help="CV file (pdf/docx) or directory for batch mode")
+    parser.add_argument("input", help="CV file (pdf/docx/doc/rtf/odt/txt/html/image) or directory")
     parser.add_argument("--output", "-o", help="Output file (single) or directory (batch)")
     parser.add_argument("--workers", "-w", type=int, default=1,
                         help="Number of parallel workers for batch mode (default: 1, LLM is sequential)")

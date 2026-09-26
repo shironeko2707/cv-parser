@@ -1,0 +1,28 @@
+name: tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  pytest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      # PDF rendering in the tests needs a Unicode font that covers Vietnamese
+      - name: Install fonts
+        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends fonts-dejavu-core fonts-liberation
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt reportlab faker pytest
+
+      - name: Run tests
+        run: python -m pytest tests -q
